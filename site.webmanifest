@@ -1,0 +1,16 @@
+{
+  "name": "HONE Bakes — Artisan Bakery Singapore",
+  "short_name": "HONE Bakes",
+  "description": "Artisan mother-daughter bakery in Singapore specialising in Japanese matcha gateaux, pandan chiffon, and sourdough bakes.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F7F1E8",
+  "theme_color": "#35271F",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

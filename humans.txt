@@ -1,0 +1,16 @@
+/* TEAM */
+Brand: HONE Bakes
+Origin: Singapore
+Founders: Mother & Daughter Duo
+Website Concept: Editorial Luxury Bakery Experience
+
+/* THANKS */
+Fonts: Cormorant Garamond, DM Sans, Noto Serif SC (Google Fonts)
+Animation: GSAP 3 (GreenSock), ScrollTrigger, Lenis Smooth Scroll
+Icons: Lucide Inline SVGs
+
+/* SITE */
+Standards: HTML5, CSS3, Vanilla ES6+
+Language: English (EN), Simplified Chinese (简体中文)
+Status: Active Production Demo
+Contact: @hone.bakes (Instagram)
