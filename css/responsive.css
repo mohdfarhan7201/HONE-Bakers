@@ -104,13 +104,46 @@
 /* 3. Small Tablets & Phablets (< 768px) */
 @media (max-width: 768px) {
   :root {
-    --container-pad: 1.5rem;
-    --section-pad: 4rem;
+    --container-pad: 1.25rem;
+    --section-pad: 3.5rem;
+  }
+
+  .site-header {
+    padding: 0.75rem 0;
+  }
+
+  .header-container {
+    gap: 0.5rem;
+  }
+
+  .brand-title {
+    font-size: 1.35rem;
+  }
+
+  .brand-sub {
+    font-size: 0.52rem;
+    letter-spacing: 0.2em;
+  }
+
+  .site-header__actions {
+    gap: 0.45rem;
+  }
+
+  /* Streamline mobile header: keep Language Switcher & Hamburger Toggle */
+  .site-header__actions .header-icon-btn,
+  .site-header__actions .header-order-btn {
+    display: none;
+  }
+
+  .mobile-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .hero {
-    padding-top: 6.5rem;
-    padding-bottom: 3rem;
+    padding-top: 5.5rem;
+    padding-bottom: 2.5rem;
   }
 
   .hero__title {
@@ -234,25 +267,68 @@
     padding: 1.5rem 1.2rem;
   }
 
+  .modal-backdrop {
+    padding: 0.75rem;
+    align-items: center;
+  }
+
   .modal-box {
-    max-height: 88vh;
+    max-height: 86vh;
+    max-width: 420px;
+    width: 100%;
+    border-radius: var(--radius-lg);
   }
 
   .modal-product-layout {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    max-height: 86vh;
+    overflow: hidden;
   }
 
   .modal-product-media {
-    height: 180px;
-    max-height: 180px;
+    height: 175px;
+    min-height: 175px;
+    max-height: 175px;
+    flex-shrink: 0;
+    width: 100%;
+    position: relative;
   }
 
   .modal-product-info {
-    padding: 1.1rem 1.1rem 1.25rem;
+    padding: 1rem 1.15rem 1.15rem;
+    overflow-y: auto;
+    flex-grow: 1;
+    -webkit-overflow-scrolling: touch;
   }
 
   .modal-product-title {
-    font-size: 1.3rem;
+    font-size: 1.25rem;
+    margin: 0.1rem 0 0.35rem;
+  }
+
+  .modal-product-desc {
+    font-size: 0.8rem;
+    line-height: 1.5;
+    margin-bottom: 0.65rem;
+  }
+
+  .modal-product-specs {
+    padding: 0.6rem 0.8rem;
+    gap: 0.3rem;
+    margin-bottom: 0.85rem;
+  }
+
+  .spec-item {
+    font-size: 0.74rem;
+  }
+
+  .modal-product-footer .btn {
+    width: 100%;
+    justify-content: center;
+    padding: 0.6rem 1rem;
+    font-size: 0.82rem;
   }
 
   .back-to-top {

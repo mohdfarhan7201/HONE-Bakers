@@ -49,10 +49,12 @@
   --transition-medium: 0.4s var(--ease-out-expo);
   --transition-slow: 0.7s var(--ease-out-expo);
 
-  /* Layering */
-  --z-nav: 100;
-  --z-modal: 200;
-  --z-cursor: 999;
+  /* Layering & Stacking Context */
+  --z-drawer: 850;
+  --z-nav: 900;
+  --z-progress: 950;
+  --z-modal: 1000;
+  --z-cursor: 9999;
 }
 
 /* ==========================================================================
@@ -64,7 +66,7 @@
   left: 0;
   width: 100%;
   height: 3px;
-  z-index: 1001;
+  z-index: var(--z-progress);
   pointer-events: none;
   background: rgba(53, 39, 31, 0.08);
 }
@@ -347,18 +349,19 @@ h1, h2, h3, h4, .font-serif {
   left: 0;
   width: 100%;
   z-index: var(--z-nav);
-  padding: 1.4rem 0;
-  transition: padding var(--transition-medium), background-color var(--transition-medium), backdrop-filter var(--transition-medium), border-color var(--transition-medium);
-  border-bottom: 1px solid transparent;
+  padding: 1.15rem 0;
+  background-color: rgba(247, 241, 232, 0.96);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--color-border-subtle);
+  transition: padding var(--transition-medium), background-color var(--transition-medium), box-shadow var(--transition-medium);
 }
 
 .site-header.nav-scrolled {
-  padding: 0.85rem 0;
-  background-color: rgba(247, 241, 232, 0.94);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  padding: 0.75rem 0;
+  background-color: rgba(247, 241, 232, 0.98);
   border-bottom-color: var(--color-border);
-  box-shadow: 0 4px 24px rgba(53, 39, 31, 0.04);
+  box-shadow: 0 4px 20px rgba(53, 39, 31, 0.06);
 }
 
 .header-container {
@@ -502,16 +505,16 @@ h1, h2, h3, h4, .font-serif {
   background: transparent;
   border: none;
   cursor: pointer;
-  width: 44px;
-  height: 44px;
+  width: 42px;
+  height: 42px;
   position: relative;
-  z-index: 110;
-  padding: 10px;
+  z-index: 920;
+  padding: 8px;
 }
 
 .hamburger-line {
   display: block;
-  width: 24px;
+  width: 22px;
   height: 2px;
   background-color: var(--color-cocoa);
   margin: 5px auto;
@@ -535,15 +538,16 @@ h1, h2, h3, h4, .font-serif {
   position: fixed;
   inset: 0;
   background-color: var(--color-cream);
-  z-index: 105;
+  z-index: var(--z-drawer);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 6.5rem 2rem 3rem;
+  padding: 6rem 1.75rem 2.5rem;
   transform: translateY(-100%);
   opacity: 0;
   visibility: hidden;
-  transition: transform 0.5s var(--ease-out-expo), opacity 0.5s var(--ease-out-expo), visibility 0.5s;
+  transition: transform 0.45s var(--ease-out-expo), opacity 0.45s var(--ease-out-expo), visibility 0.45s;
+  overflow-y: auto;
 }
 
 .mobile-drawer.is-open {
@@ -1861,26 +1865,37 @@ h1, h2, h3, h4, .font-serif {
 
 .modal-close-btn {
   position: absolute;
-  top: 0.85rem;
-  right: 0.85rem;
-  background: rgba(53, 39, 31, 0.08);
-  border: none;
-  width: 32px;
-  height: 32px;
+  top: 10px;
+  right: 10px;
+  background: #FFFDF8;
+  border: 1.5px solid rgba(53, 39, 31, 0.2);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.28);
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--color-cocoa);
-  z-index: 20;
+  color: #35271F;
+  z-index: 100;
   transition: all var(--transition-fast);
 }
 
+.modal-close-btn svg {
+  stroke: #35271F;
+  stroke-width: 2.5px;
+}
+
 .modal-close-btn:hover {
-  background: var(--color-cocoa);
-  color: var(--color-ivory);
+  background: #35271F;
+  color: #FFFDF8;
+  border-color: #35271F;
   transform: scale(1.08);
+}
+
+.modal-close-btn:hover svg {
+  stroke: #FFFDF8;
 }
 
 /* Product Detail Modal Content — Sleek Compact Layout */

@@ -52,7 +52,6 @@ class HoneApp {
     this.setupLanguageSwitcher();
     this.setupCategoryFilters();
     this.setupBackToTop();
-    this.setupAudioAmbience();
     this.setupSignatureLayers();
 
     console.log(`%c HONE BAKES %c Artisan Bakery Singapore %c Loaded (${this.currentLang.toUpperCase()}) `, 
@@ -236,68 +235,6 @@ class HoneApp {
       } else {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }
-    });
-  }
-
-  setupAudioAmbience() {
-    const audioBtn = document.getElementById('sound-toggle');
-    if (!audioBtn) return;
-
-    // Use Web Audio API for subtle soft acoustic baking bell chime (zero external audio file dependency)
-    let audioCtx = null;
-    let soundEnabled = false;
-
-    function playSoftChime() {
-      if (!soundEnabled) return;
-      try {
-        if (!audioCtx) {
-          audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-        }
-        if (audioCtx.state === 'suspended') {
-          audioCtx.resume();
-        }
-
-        const osc = audioCtx.createOscillator();
-        const gain = audioCtx.createGain();
-
-        osc.type = 'sine';
-        // Warm harmonious bell frequency
-        osc.frequency.setValueAtTime(587.33, audioCtx.currentTime); // D5
-        osc.frequency.exponentialRampToValueAtTime(880, audioCtx.currentTime + 0.1); // A5
-
-        gain.gain.setValueAtTime(0.04, audioCtx.currentTime);
-        gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 1.2);
-
-        osc.connect(gain);
-        gain.connect(audioCtx.destination);
-
-        osc.start();
-        osc.stop(audioCtx.currentTime + 1.2);
-      } catch (e) {
-        console.log("Audio not supported or blocked");
-      }
-    }
-
-    audioBtn.addEventListener('click', () => {
-      soundEnabled = !soundEnabled;
-      audioBtn.classList.toggle('sound-on', soundEnabled);
-      audioBtn.setAttribute('aria-pressed', soundEnabled ? 'true' : 'false');
-      
-      const soundStatus = audioBtn.querySelector('.sound-status-text');
-      if (soundStatus) {
-        soundStatus.textContent = soundEnabled ? 'Sound: ON' : 'Sound: OFF';
-      }
-
-      if (soundEnabled) {
-        playSoftChime();
-      }
-    });
-
-    // Soft chime on primary button hover when sound is enabled
-    document.querySelectorAll('.btn-primary, .product-card').forEach(item => {
-      item.addEventListener('mouseenter', () => {
-        if (soundEnabled) playSoftChime();
-      });
     });
   }
 
