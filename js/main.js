@@ -3,12 +3,12 @@
  * Bootstraps components, handles bilingual switching, and coordinates UI state.
  */
 
-import { BRAND_CONFIG } from './config.js';
-import { TRANSLATIONS } from './translations.js';
-import { renderProducts, initProductModal } from './products.js';
-import { initGallery } from './gallery.js';
-import { initOrderForm } from './form.js';
-import { initAnimations } from './animations.js';
+import { BRAND_CONFIG } from './config.js?v=2.2';
+import { TRANSLATIONS } from './translations.js?v=2.2';
+import { renderProducts, initProductModal } from './products.js?v=2.2';
+import { initGallery } from './gallery.js?v=2.2';
+import { initOrderForm } from './form.js?v=2.2';
+import { initAnimations } from './animations.js?v=2.2';
 
 class HoneApp {
   constructor() {
