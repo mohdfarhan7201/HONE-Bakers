@@ -329,17 +329,35 @@ export function initAnimations() {
       });
     });
 
-    // H. Gallery Section — Multi-Column Alternating Parallax Scrub
-    gsap.utils.toArray('.gallery-item').forEach((item, index) => {
-      const speed = index % 2 === 0 ? 10 : -8;
-      gsap.to(item, {
-        yPercent: speed,
+    // H. Gallery Section — Staggered Entrance & Inner Frame Parallax
+    gsap.fromTo('.gallery-item', 
+      { opacity: 0, y: 30, scale: 0.98 },
+      {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        stagger: 0.08,
+        duration: 0.75,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: '#gallery-grid',
+          start: 'top 85%',
+          toggleActions: 'play none none none'
+        }
+      }
+    );
+
+    // Smooth subtle parallax inside each photo frame without distorting grid alignment
+    gsap.utils.toArray('.gallery-item__img').forEach(img => {
+      gsap.to(img, {
+        yPercent: 6,
+        scale: 1.04,
         ease: 'none',
         scrollTrigger: {
-          trigger: '#gallery',
+          trigger: img.closest('.gallery-item'),
           start: 'top bottom',
           end: 'bottom top',
-          scrub: 1.2
+          scrub: 1
         }
       });
     });

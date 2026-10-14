@@ -11,7 +11,7 @@ export const GALLERY_ITEMS = [
     captionEn: "Morning studio rituals: Dusting Marukyu Koyamaen matcha over slow-baked layers.",
     captionZh: "工作室晨光时刻：为慢烤蛋糕细细筛落京都丸久小山园抹茶粉。",
     orientation: "portrait",
-    aspect: "tall"
+    aspect: "standard"
   },
   {
     id: "gal-2",
@@ -28,8 +28,8 @@ export const GALLERY_ITEMS = [
     alt: "Tall Pandan Gula Melaka Chiffon Cake with toasted coconut flakes and palm sugar drizzle",
     captionEn: "Southeast Asian heritage: Fresh cold-pressed pandan leaf chiffon with pure Malaccan palm sugar.",
     captionZh: "南洋传统风味：纯鲜榨斑兰叶汁慢蒸烤雪纺，淋上马六甲古法纯椰糖。",
-    orientation: "square",
-    aspect: "standard"
+    orientation: "landscape",
+    aspect: "wide"
   },
   {
     id: "gal-4",
@@ -37,8 +37,8 @@ export const GALLERY_ITEMS = [
     alt: "Ceremonial bamboo matcha whisk chasen and vibrant green matcha bowl",
     captionEn: "Honouring the leaf: Whisking single-origin Japanese ceremonial green tea.",
     captionZh: "静心点茶：选用日本宇治单一产地仪式级抹茶，茶汤鲜翠浓醇。",
-    orientation: "landscape",
-    aspect: "wide"
+    orientation: "square",
+    aspect: "standard"
   },
   {
     id: "gal-5",
@@ -47,7 +47,7 @@ export const GALLERY_ITEMS = [
     captionEn: "24-hour slow fermentation: Shatteringly crisp bottoms and melting French butter.",
     captionZh: "24小时低温慢酵：金黄酥脆的黄油底壳与片状海盐的绝妙咸香。",
     orientation: "portrait",
-    aspect: "tall"
+    aspect: "standard"
   },
   {
     id: "gal-6",
@@ -55,8 +55,8 @@ export const GALLERY_ITEMS = [
     alt: "Warm cream bakery gift box with ribbon and dried botanical accents",
     captionEn: "Crafted to be gifted: Hand-tied ribbons, linen paper, and heartfelt baking notes.",
     captionZh: "心意礼赞：雅致系带温润纸盒，附上手写赏味卡片，为分享而生。",
-    orientation: "square",
-    aspect: "standard"
+    orientation: "landscape",
+    aspect: "wide"
   }
 ];
 
